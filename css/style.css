@@ -1,0 +1,54 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Merriweather', serif; */
+    background-color: rgb(200, 200, 204);
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 1200px;
+    background-color: white;
+    margin: 40px auto;
+}
+
+.about-me-profession {
+    font-size: 14px;
+    font-weight: 700;
+    color: black;
+}
+
+.main-contant-section {
+    margin: 20px;
+}
+
+.about-me-section {
+    margin: 20px;
+}
+
+.my-projects-section {
+    margin: 20px;
+}
+
+.my-short-history-section {
+    margin: 20px;
+}
+
+.my-education-section {
+    margin: 20px;
+}
+
+.my-work-experience-section {
+    margin: 20px;
+}
+
+.additional-info-section {
+    margin: 20px;
+}
+
+.sidebar-section {
+    background-color: #1E2939;
+    margin: 20px;
+    padding: 20px;
+    color: white;
+}
