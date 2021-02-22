@@ -6,11 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
     <title>Юрий Макаренко CV</title>
+    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -22,7 +20,7 @@
             <!--about me section-->
             <div class="about-me-section">
                 <h2 class="about-me-profession">Ruby on Rails Developer</h2>
-                <h1>Юрий Макаренко</h1>
+                <h1 class="name-surname-line">Юрий Макаренко</h1>
 
                 <p>Имею опыт программирования на Ruby, самостоятельно с нуля создавал веб-приложения на Ruby on Rails,
                     используя Git, Docker Compose, Heroku, PostgreSQL; знаю азы HTML, CSS, Bootstrap, JS; развёртывание
@@ -32,22 +30,22 @@
             <div class="my-projects-section">
                 <h3>Мои проекты</h3>
                 <ol>
-                    <ul>
+                    <ul class="my-projects-list">
                         <a href="https://github.com/makarenkoj/bbq">BBQ - создание встреч</a>
-                        <span>. . . . . . . . . . . . . . . .[ MVC, REST, Bootstrap, Devise, Heroku ]</span>
+                        <span>. . . . . . . . . . . . . . . . . . . .[ MVC, REST, Bootstrap, Devise, Heroku ]</span>
                     </ul>
-                    <ul>
+                    <ul class="my-projects-list">
                         <a href="https://github.com/makarenkoj/instatalk">Instatalk - чат</a>
                         <span>. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-                            . . . . . . . . .[ WebSocket ]</span>
+                            . . . . . . . [ WebSocket ]</span>
                     </ul>
-                    <ul>
+                    <ul class="my-projects-list">
                         <a href="https://github.com/makarenkoj/askme">Askme - приложение вопрос-ответ</a>
-                        <span>. . . . . . . . .[ HTML, CSS, reCAPTCHA, Heroku ]</span>
+                        <span>. . . . . . . . . . . . . .[ HTML, CSS, reCAPTCHA, Heroku ]</span>
                     </ul>
-                    <ul>
+                    <ul class="my-projects-list">
                         <a href="https://github.com/makarenkoj/simple_blog">Simple Blog</a>
-                        <span>. . .[ Docker Compose, Bootstrap, Heroku, Webpacker, PostgreSQL ]</span>
+                        <span>. . . . . . . . . [ Docker Compose, Bootstrap, Heroku, Webpacker, PostgreSQL ]</span>
                     </ul>
                 </ol>
             </div>
@@ -55,7 +53,7 @@
             <div class="my-short-history-section">
                 <p>Обучился на интенсиве от "Goodprogrammer" по Ruby и Ruby on Rails. На интенсиве я научился
                     программировать на Ruby, самостоятельно с нуля создавал веб-приложения на Ruby on Rails, изучил как
-                    устроен интернет, освоил HTML, CSS, азы JavaScript. научился пользоваться Git и настраивать сервера
+                    устроен интернет, освоил HTML, CSS, азы JavaScript. Научился пользоваться Git и настраивать сервера
                     Linux для выкладывания приложений в интернет, Также написал несколько приложений используя
                     ActionCable, Rspec, Capybara, TDD, ActionMailer, devise, i18n, .....</p>
                 <p>В данный момент я продолжаю самостоятельно развиваться и изучать Ruby, создал небольшие приложения на
@@ -67,28 +65,26 @@
             <div class="my-education-section">
                 <h3>Образование / Тренинги</h3>
                 <div>
-                    <h4>Хороший программист</h4>
-                    <h5>Ruby on Rails Developer</h5>
-                    <p>Май 2019 - Октябрь 2019 | on-line</p>
+                    <h4>Хороший программист | <i>Ruby on Rails Developer</i></h4>
+                    <p class="history-dates-list">Май 2019 - Октябрь 2019 | <i>on-line</i></p>
                 </div>
                 <div>
-                    <h4>Киевский университет менеджмента</h4>
-                    <h5>Финансист</h5>
-                    <p>Сентябрь 2007 - Май 2011 | Украина, Киев</p>
+                    <h4>Киевский университет менеджмента | <i>Финансист</i></h4>
+                    <p class="history-dates-list">Сентябрь 2007 - Май 2011 | <i>Украина, Киев</i></p>
                 </div>
             </div>
             <!--my work experience section-->
             <div class="my-work-experience-section">
                 <h3>Work Experience</h3>
                 <div>
-                    <h4>Handyman</h4>
-                    <p>Декабрь 2017 - настоящее время | Украина, Киев</p>
+                    <h4>OSCE | Handyman</h4>
+                    <p class="history-dates-list">Декабрь 2017 - настоящее время | <i>Украина, Киев</i></p>
                 </div>
             </div>
             <!--additional info section-->
             <div class="additional-info-section">
                 <div>
-                    <h4>Дополнительные сведения</h4>
+                    <h4 class="additional-info-name-list">Дополнительные сведения</h4>
                     <li>Добросовестно отношусь к работе, инициативен;</li>
                     <li>Постоянно занимаюсь самосовершенствованием, готов к дальнейшему обучению;</li>
                     <li>Способен производительно работать, сосредотачиваясь на конечных целях.</li>
@@ -99,53 +95,57 @@
         <aside class="sidebar-section">
             <img src="img/Yurii Makarenko.jpg" alt="Photo" width="340px">
             <!--contacts section-->
-            <div>
+            <div class="contacts-section">
                 <h3>Контакты</h3>
                 <div>
-                    <span>Phone:</span>
-                    <a href="tel:+380505782233">+380 50 578 22 33</a>
+                    <span><img src="img/phone.png" width=20 alt="Phone"></span>
+                    <a class="contacts-list" href="tel:+380505782233">+380 50 578 22 33</a>
                 </div>
                 <div>
-                    <span>E-mail:</span>
-                    <a href="mailto:makarenkoj53@gmail.com">makarenkoj53@gmail.com</a>
+                    <span><img src="img/email.png" width=20 alt="E-mail"></span>
+                    <a class="contacts-list" href="mailto:makarenkoj53@gmail.com">makarenkoj53@gmail.com</a>
                 </div>
                 <div>
-                    <span>Telegram:</span>
-                    <a href="https://telegram.im/@makarenkoj">@makarenkoj</a>
+                    <span><img src="img/telegram.png" width=20 alt="Telegram"></span>
+                    <a class="contacts-list" href="https://telegram.im/@makarenkoj">@makarenkoj</a>
                 </div>
                 <div>
-                    <span>Skype:</span>
-                    <a href="skype:makarenkoj?chat">makarenkoj</a>
+                    <span><img src="img/skype.png" width=20 alt="Skype"></span>
+                    <a class="contacts-list" href="skype:makarenkoj?chat">makarenkoj</a>
                 </div>
                 <div>
-                    <span>GitHub Projects:</span>
-                    <a href="https://github.com/makarenkoj">makarenkoj</a>
+                    <div>
+                        <span><img src="img/linkedin.png" width=20 alt="Linkedin"></span>
+                        <a class="contacts-list" href="https://www.linkedin.com/in/yurii-makarenko/">My profile</a>
+                    </div>
+                    <div>
+                    <span><img src="img/github.png" width=20 alt="GitHub"></span>
+                    <a class="contacts-list" href="https://github.com/makarenkoj">makarenkoj</a>
                 </div>
                 <!--tech skills section-->
-                <div>
+                <div class="tech-skills-section">
                     <h3>Tech Skills</h3>
-                    <ul><b>Programming languages:</b> Ruby, JS</ul>
-                    <ul><b>Front-end:</b> HTML, CSS, Bootstrap</ul>
-                    <ul><b>Framework:</b> Ruby on Rails (ROR)</ul>
-                    <ul><b>Development tools:</b> Vim, VS code, Ruby Mine</ul>
-                    <ul><b>Operation system:</b> Windows, Linux</ul>
-                    <ul><b>Database system:</b> SQL, PostgreSQL</ul>
-                    <ul><b>Version control system:</b> Git, GitHub</ul>
-                    <ul><b>Web-services:</b> Heroku</ul>
-                    <ul><b>OOP, Docker, REST, TDD, BDD, RSpec, Capybara</b></ul>
+                    <ul class="tech-skills-list"><b>Programming languages:</b> Ruby, JS</ul>
+                    <ul class="tech-skills-list"><b>Front-end:</b> HTML, CSS, Bootstrap</ul>
+                    <ul class="tech-skills-list"><b>Framework:</b> Ruby on Rails (ROR)</ul>
+                    <ul class="tech-skills-list"><b>Development tools:</b> Vim, VS code, Ruby Mine</ul>
+                    <ul class="tech-skills-list"><b>Operation system:</b> Windows, Linux</ul>
+                    <ul class="tech-skills-list"><b>Database system:</b> SQL, PostgreSQL</ul>
+                    <ul class="tech-skills-list"><b>Version control system:</b> Git, GitHub</ul>
+                    <ul class="tech-skills-list"><b>Web-services:</b> Heroku</ul>
+                    <ul class="tech-skills-list"><b>OOP, Docker, REST, TDD, BDD, RSpec, Capybara</b></ul>
                 </div>
                 <!--soft skills section-->
-                <div>
+                <div class="soft-skills-sectio">
                     <h3>Soft Skills</h3>
-                    <ul>Scrum</ul>
-                    <ul>Agile</ul>
-                    <ul>Teamwork</ul>
+                    <li>Scrum</li>
+                    <li>Agile</li>
+                    <li>Teamwork</li>
                 </div>
                 <!--language skills section-->
-                <div>
+                <div class="language-skills-section">
                     <h3>Language</h3>
-                    <ul>English: pre-intermediate (speaking)</ul>
-                    <ul>English: intermediate (reading)</ul>
+                    <ul class="language-skills-list">English: pre-intermediate</ul>
                 </div>
             </div>
         </aside>
