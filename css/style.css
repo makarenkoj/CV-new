@@ -1,6 +1,5 @@
 body {
     font-family: 'Open Sans', sans-serif;
-    /* font-family: 'Merriweather', serif; */
     background-color: rgb(200, 200, 204);
 }
 
@@ -68,7 +67,7 @@ h5 {
 }
 
 .my-education-section {
-    margin: 20px;
+    margin: 10px;
 }
 
 .my-work-experience-section {
@@ -104,8 +103,19 @@ h5 {
     color: white;
 }
 
+.button {
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px bold;
+}
+
 .contacts-section {
     padding: 25px;
+    padding-top: 0;
     line-height: 30px;
 }
 
@@ -119,7 +129,7 @@ h5 {
 
 .tech-skills-list {
     padding: 0;
-    /* margin-bottom: -10px; */
+    margin-bottom: -5px;
 }
 
 .language-skills-list {
