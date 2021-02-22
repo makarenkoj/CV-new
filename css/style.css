@@ -4,51 +4,135 @@ body {
     background-color: rgb(200, 200, 204);
 }
 
+h3 {
+    font-family: 'Alegreya', serif;
+    font-size: 28px;
+    padding-left: 40px;
+    line-height: 34px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+h4 {
+    font-size: 18px;
+    margin-top: 30px;
+}
+
+h5 {
+    font-size: 14px;
+    padding-left: 20px;
+}
+
 .main-container {
     display: flex;
     flex-direction: row-reverse;
     width: 1200px;
     background-color: white;
-    margin: 40px auto;
+    margin: 20px auto;
 }
 
 .about-me-profession {
-    font-size: 14px;
+    padding-left: 20px;
+    margin-top: 60px;
+    font-size: 18px;
     font-weight: 700;
-    color: black;
+    color: rgb(20, 20, 20);
+}
+
+.name-surname-line {
+    font-family: 'Alegreya', serif;
+    font-size: 36px;
+    padding-left: 20px;
 }
 
 .main-contant-section {
-    margin: 20px;
+    margin-left: 30px;
+    margin-right: 60px;
 }
 
 .about-me-section {
-    margin: 20px;
+    margin: 10px;
+    line-height: 2;
 }
 
 .my-projects-section {
-    margin: 20px;
+    padding: 0;
+    margin: 5px;
 }
 
 .my-short-history-section {
-    margin: 20px;
+    padding: 10px;
+    font-size: 16px;
+    line-height: 2;
+    font-style: italic;
 }
 
 .my-education-section {
-    margin: 20px;
+    margin: 10px;
 }
 
 .my-work-experience-section {
     margin: 20px;
 }
 
+.history-dates-list {
+    margin-left: 20px;
+}
+
 .additional-info-section {
     margin: 20px;
+    line-height: 2;
+    margin-bottom: 0;
 }
+
+.additional-info-name-list {
+    font-family: 'Alegreya', serif;
+    font-size: 22px;
+    padding-left: 40px;
+    line-height: 34px;
+    margin-bottom: 10px;
+    margin-top: 40px;
+}
+
+/* sidebar section */
 
 .sidebar-section {
     background-color: #1E2939;
+    width: 580px;
     margin: 20px;
-    padding: 20px;
+    padding: 10px;
     color: white;
+}
+
+.button {
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px bold;
+}
+
+.contacts-section {
+    padding: 25px;
+    padding-top: 0;
+    line-height: 30px;
+}
+
+.contacts-list {
+    padding-left: 10px;
+}
+
+.my-projects-list {
+    padding: 0;
+}
+
+.tech-skills-list {
+    padding: 0;
+    margin-bottom: -5px;
+}
+
+.language-skills-list {
+    padding: 0;
 }
