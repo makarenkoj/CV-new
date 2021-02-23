@@ -1,11 +1,12 @@
 body {
     font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
     background-color: rgb(200, 200, 204);
 }
 
 h3 {
     font-family: 'Alegreya', serif;
-    font-size: 28px;
+    font-size: 26px;
     padding-left: 40px;
     line-height: 34px;
     margin-bottom: 20px;
@@ -18,7 +19,7 @@ h4 {
 }
 
 h5 {
-    font-size: 14px;
+    font-size: 16px;
     padding-left: 20px;
 }
 
@@ -61,8 +62,7 @@ h5 {
 
 .my-short-history-section {
     padding: 10px;
-    font-size: 16px;
-    line-height: 2;
+    line-height: 1,5;
     font-style: italic;
 }
 
@@ -81,7 +81,7 @@ h5 {
 .additional-info-section {
     margin: 20px;
     line-height: 2;
-    margin-bottom: 0;
+    margin-bottom: 40px;
 }
 
 .additional-info-name-list {
