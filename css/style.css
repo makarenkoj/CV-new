@@ -67,7 +67,7 @@ h5 {
 }
 
 .my-education-section {
-    margin: 10px;
+    margin: 10px 0 50px 0;
 }
 
 .my-work-experience-section {
@@ -78,10 +78,14 @@ h5 {
     margin-left: 20px;
 }
 
+.responsibilities-list {
+    font-style: italic;
+    font-weight: 100;
+}
+
 .additional-info-section {
-    margin: 20px;
+    margin: 30px 20px 20px 20px;
     line-height: 2;
-    margin-bottom: 40px;
 }
 
 .additional-info-name-list {
@@ -115,12 +119,13 @@ h5 {
 
 .contacts-section {
     padding: 25px;
-    padding-top: 0;
     line-height: 30px;
 }
 
 .contacts-list {
     padding-left: 10px;
+    text-decoration: none;
+    color: white;
 }
 
 .my-projects-list {
@@ -128,10 +133,13 @@ h5 {
 }
 
 .tech-skills-list {
-    padding: 0;
-    margin-bottom: -5px;
+    padding: 0 0 0 20px;
+    list-style-type: square;
 }
 
 .language-skills-list {
     padding: 0;
+    margin-bottom: -5px;
+    list-style-type: none;
 }
+
