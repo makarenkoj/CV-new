@@ -45,6 +45,10 @@ h5 {
     padding-left: 20px;
 }
 
+p.about-me-section-descr {
+    padding-left: 50px;
+}
+
 .main-contant-section {
     margin-left: 30px;
     margin-right: 60px;
@@ -67,7 +71,7 @@ h5 {
 }
 
 .my-education-section {
-    margin: 10px;
+    margin: 10px 0 50px 0;
 }
 
 .my-work-experience-section {
@@ -78,10 +82,14 @@ h5 {
     margin-left: 20px;
 }
 
+.responsibilities-list {
+    font-style: italic;
+    font-weight: 100;
+}
+
 .additional-info-section {
-    margin: 20px;
+    margin: 30px 20px 20px 20px;
     line-height: 2;
-    margin-bottom: 40px;
 }
 
 .additional-info-name-list {
@@ -115,23 +123,21 @@ h5 {
 
 .contacts-section {
     padding: 25px;
-    padding-top: 0;
     line-height: 30px;
 }
 
 .contacts-list {
     padding-left: 10px;
-}
-
-.my-projects-list {
-    padding: 0;
+    text-decoration: none;
+    color: white;
 }
 
 .tech-skills-list {
-    padding: 0;
-    margin-bottom: -5px;
+    padding: 0 0 0 20px;
+    list-style-type: square;
 }
 
 .language-skills-list {
     padding: 0;
+    list-style-type: none;
 }
