@@ -3,9 +3,11 @@
 Version:
 --------
 
-- [**English**](href="https://github.com/makarenkoj/CV-new/raw/main/doc/CV%20Yurii%20Makarenko%20(Ruby%20on%20Rails%20Developer).pdf">)
+* [**English**](href="https://makarenkoj.github.io/CV-new/index_en.html")
 
-- [**Ukranian**](href="https://github.com/makarenkoj/CV-new/raw/main/doc/CV%20Yurii%20Makarenko%20(Ruby%20on%20Rails%20Developer)%20en.pdf">)
+* [**Ukranian**](href="https://makarenkoj.github.io/CV-new/")
+
+* [**Italian**](href="https://makarenkoj.github.io/CV-new/index_it.html")
 
 
 
