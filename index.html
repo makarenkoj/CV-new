@@ -85,9 +85,9 @@
             <img src="img/Yurii Makarenko.jpg" alt="Photo" width="340px">
             <!--buttons-->
             <div>
-                <p><a class="button" href="index_en.html">EN</a> |
-                    <a class="button" href="index_it.html">IT</a> |
-                    <a class="button"
+                <p><a id="lang_en" class="button" href="index_en.html">EN</a> |
+                    <a id="lang_it" class="button" href="index_it.html">IT</a> |
+                    <a id="save" class="button"
                         href="https://github.com/makarenkoj/CV-new/raw/main/doc/CV%20Yurii%20Makarenko%20(Ruby%20on%20Rails%20Developer).pdf">
                         Зберегти у ПДФ
                     </a>
@@ -96,31 +96,32 @@
             <!--contacts section-->
             <div class="contacts-section">
                 <h3>Контакти</h3>
-                <div>
+                <div id="phone">
                     <span><img src="img/phone.png" width=20 alt="Phone"></span>
                     <a class="contacts-list" href="tel:+380505782233">+380 50 578 22 33</a>
                 </div>
-                <div>
+                <div id="email">
                     <span><img src="img/email.png" width=20 alt="E-mail"></span>
                     <a class="contacts-list" href="mailto:makarenkoj53@gmail.com">makarenkoj53@gmail.com</a>
                 </div>
-                <div>
+                <div id="telegram">
                     <span><img src="img/telegram.png" width=20 alt="Telegram"></span>
                     <a class="contacts-list" href="https://telegram.im/@makarenkoj">@makarenkoj</a>
                 </div>
-                <div>
+                <div id="whats_app">
                     <span><img src="img/whats_app.png" width=20 alt="Phone"></span>
                     <a class="contacts-list" href="https://wa.me/380505782233">WhatsApp</a>
                 </div>
                 <div>
+                <div id="skype">
                     <span><img src="img/skype.png" width=20 alt="Skype"></span>
                     <a class="contacts-list" href="skype:makarenkoj?chat">makarenkoj</a>
                 </div>
-                <div>
+                <div id="linkedin">
                     <span><img src="img/linkedin.png" width=20 alt="Linkedin"></span>
                     <a class="contacts-list" href="https://www.linkedin.com/in/yurii-makarenko/">My linkedin</a>
                 </div>
-                <div>
+                <div id="github">
                     <span><img src="img/github.png" width=20 alt="GitHub"></span>
                     <a class="contacts-list" href="https://github.com/makarenkoj">makarenkoj</a>
                 </div>
@@ -151,6 +152,7 @@
             </div>
         </aside>
     </div>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
