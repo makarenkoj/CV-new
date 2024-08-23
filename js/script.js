@@ -19,7 +19,7 @@ const myPhone = myContact[0],
       myGithub = myContact[6],
       saveText = saveBtn.textContent;
 
-console.log(myContact);
+console.log("Hello, I'm here!");
 
 // download PDF
 function downloadPdf() {
