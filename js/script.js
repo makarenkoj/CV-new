@@ -10,6 +10,8 @@ let myContact = document.getElementsByClassName('contacts-list'),
     itId = document.getElementById('lang_it'),
     enId = document.getElementById('lang_en'),
     backEndUrl = 'https://clinic-6109.onrender.com/watchings',
+    apiKey = process.env.API_KEY,
+    address = 'https://api.ipgeolocation.io/ipgeo?apiKey=API_KEY&ip=8.8.8.8',
     clientUserInfo;
 
 const myPhone = myContact[0],
@@ -121,7 +123,8 @@ async function fetchData() {
   try {
   const fetchUserIP = await fetch('https://api.ipify.org?format=json'),
         userIP = await fetchUserIP.json(),
-        fetchUserInfo = await fetch(`http://ip-api.com/json/${userIP.ip}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,proxy,hosting,query`),
+        // fetchUserInfo = await fetch(`http://ip-api.com/json/${userIP.ip}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,proxy,hosting,query`),
+        fetchUserInfo = await fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=${apiKey}&ip=${userIP.ip}`),
         userInfo = await fetchUserInfo.json();
 
   userInfo.ip = userIP.ip;
