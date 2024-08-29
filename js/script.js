@@ -9,7 +9,7 @@ let myContact = document.getElementsByClassName('contacts-list'),
     saveBtn = document.getElementById('save'),
     itId = document.getElementById('lang_it'),
     enId = document.getElementById('lang_en'),
-    backEndUrl = 'http://localhost:3000/watchings',
+    backEndUrl = 'https://clinic-6109.onrender.com/watchings',
     clientUserInfo;
 
 const myPhone = myContact[0],
@@ -122,7 +122,7 @@ async function fetchData() {
   const fetchUserIP = await fetch('https://api.ipify.org?format=json'),
         userIP = await fetchUserIP.json(),
         fetchUserInfo = await fetch(`http://ip-api.com/json/${userIP.ip}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,proxy,hosting,query`),
-        userInfo =await fetchUserInfo.json();
+        userInfo = await fetchUserInfo.json();
 
   userInfo.ip = userIP.ip;
   clientUserInfo = userInfo;
@@ -165,5 +165,5 @@ function sendData(data) {
     method: 'POST',
     body: JSON.stringify({watching: snakeCaseData})
   })
-  console.log(result);
+  console.log('some', result);
 }
