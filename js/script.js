@@ -8,7 +8,9 @@ let myContact = document.getElementsByClassName('contacts-list'),
     githubId = document.getElementById('github'),
     saveBtn = document.getElementById('save'),
     itId = document.getElementById('lang_it'),
-    enId = document.getElementById('lang_en');
+    enId = document.getElementById('lang_en'),
+    backEndUrl = 'https://clinic-6109.onrender.com/watchings',
+    clientUserInfo;
 
 const myPhone = myContact[0],
       myEmail = myContact[1],
@@ -19,7 +21,7 @@ const myPhone = myContact[0],
       myGithub = myContact[6],
       saveText = saveBtn.textContent;
 
-console.log("Hello, I'm here!");
+console.log("Hello, I'm here! 🔥");
 
 // download PDF
 function downloadPdf() {
@@ -109,3 +111,59 @@ githubId.addEventListener('mouseleave', writeMeGithubReturn);
 
 // saveBtn.addEventListener('mouseenter', downloadPdf);
 // saveBtn.addEventListener('mouseleave', downloadPdfReturn);
+
+addEventListener('load', (event) => {
+  fetchData()
+})
+
+// get user data
+async function fetchData() {
+  try {
+  const fetchUserIP = await fetch('https://api.ipify.org?format=json'),
+        userIP = await fetchUserIP.json(),
+        fetchUserInfo = await fetch(`http://ip-api.com/json/${userIP.ip}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,proxy,hosting,query`),
+        userInfo = await fetchUserInfo.json();
+
+  userInfo.ip = userIP.ip;
+  clientUserInfo = userInfo;
+  console.log(clientUserInfo);
+
+  sendData(userInfo);
+  } catch (error) {
+    console.error('Error get data:', error);
+  }
+};
+
+// change data for send to back-end
+function camelToSnake(camelStr) {
+  return camelStr.replace(/([A-Z])/g, '_$1').toLowerCase();
+}
+
+function keysToSnakeCase(obj) {
+  if (typeof obj !== 'object' || obj === null) {
+    return obj;
+  }
+
+  if (Array.isArray(obj)) {
+    return obj.map(item => keysToSnakeCase(item));
+  }
+
+  return Object.keys(obj).reduce((acc, key) => {
+    const snakeKey = camelToSnake(key);
+    acc[snakeKey] = keysToSnakeCase(obj[key]);
+    return acc;
+  }, {});
+}
+
+// send data 
+function sendData(data) {
+  const snakeCaseData = keysToSnakeCase(data);
+  const result = fetch(backEndUrl, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: 'POST',
+    body: JSON.stringify({watching: snakeCaseData})
+  })
+  console.log('some', result);
+}
