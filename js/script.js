@@ -10,7 +10,7 @@ let myContact = document.getElementsByClassName('contacts-list'),
     itId = document.getElementById('lang_it'),
     enId = document.getElementById('lang_en'),
     backEndUrl = 'https://clinic-6109.onrender.com/watchings',
-    apiKey = process.env.API_KEY,
+    apiKey = 'f6b2f6d81b934d4a99388d30de19365f',
     address = 'https://api.ipgeolocation.io/ipgeo?apiKey=API_KEY&ip=8.8.8.8',
     clientUserInfo;
 
