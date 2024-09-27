@@ -1,10 +1,10 @@
-// url hendler
+// url heandler
 function getCurrentURL () {
   return window.location.href
 }
 
-const url = getCurrentURL()
-console.log(url);
+const url = getCurrentURL(),
+      htmlLang = document.documentElement.lang;
 
 let myContact = document.getElementsByClassName('contacts-list'),
     phoneId = document.getElementById('phone'),
@@ -15,10 +15,9 @@ let myContact = document.getElementsByClassName('contacts-list'),
     linkedinId = document.getElementById('linkedin'),
     githubId = document.getElementById('github'),
     saveBtn = document.getElementById('save'),
+    saveBtnText = saveBtn.textContent,
     itId = document.getElementById('lang_it'),
     enId = document.getElementById('lang_en'),
-    // backEndUrl = 'https://clinic-6109.onrender.com/watchings',
-    // backEndUrl = 'http://localhost:3000/watchings',
     apiKey = 'f6b2f6d81b934d4a99388d30de19365f',
     address = 'https://api.ipgeolocation.io/ipgeo?apiKey=API_KEY&ip=8.8.8.8',
     clientUserInfo;
@@ -29,105 +28,66 @@ if (url == 'http://127.0.0.1:5500/index.html' || url == 'http://127.0.0.1:5500/i
     backEndUrl = 'https://clinic-6109.onrender.com/watchings';
 }
 
-const myPhone = myContact[0],
-      myEmail = myContact[1],
-      myTelegram = myContact[2],
-      myWhatsApp = myContact[3],
-      mySkype = myContact[4],
-      myLinkedin = myContact[5],
-      myGithub = myContact[6],
-      saveText = saveBtn.textContent;
+// text data
+const text = {
+              phone: { 
+                  'ua': { default: '+38 050 578 22 33', hover: 'Зателефонуйте мені +38 050 578 22 33' },
+                  'it': { default: '+39 351 334 42 16', hover: 'Chiamami +39 351 334 42 16' },
+                  'en': { default: '+38 050 578 22 33', hover: 'Call Me +38 050 578 22 33' }
+              },
+              email: { 
+                  ua: { default: 'makarenkoj53@gmail.com', hover: 'Натисніть, щоб написати мені email' },
+                  it: { default: 'makarenkoj53@gmail.com', hover: 'Clicca per scrivermi email' },
+                  en: { default: 'makarenkoj53@gmail.com', hover: 'Сlick to write me email' }
+              },
+              telegram: {
+                  ua: { default: '@makarenkoj', hover: 'Натисніть, щоб написати мені y Telegram' },
+                  it: { default: '@makarenkoj', hover: 'Fare clic per avviare una chat di Telegram' },
+                  en: { default: '@makarenkoj', hover: 'Сlick to write me on Telegram' }
+              },
+              whatsApp: {
+                  ua: { default: 'WhatsApp', hover: 'Натисніть, щоб написати мені у WhatsApp' },
+                  it: { default: 'WhatsApp', hover: 'Fare clic per avviare una chat di WhatsApp' },
+                  en: { default: 'WhatsApp', hover: 'Сlick to write me on WhatsApp' },
+              },
+              skype: {
+                  ua: { default: 'makarenkoj', hover: 'Натисніть, щоб написати мені y Skype' },
+                  it: { default: 'makarenkoj', hover: 'Clicca per scrivermi in Skype' },
+                  en: { default: 'makarenkoj', hover: 'Сlick to write me on Skype' },
+              },
+              linkedin: {
+                  ua: { default: 'My linkedin', hover: 'Подивіться на мене в Linkedin' },
+                  it: { default: 'My linkedin', hover: 'Guardami su Linkedin' },
+                  en: { default: 'My linkedin', hover: 'Look at me in Linkedin' },
+              },
+              github: {
+                  ua: { default: 'makarenkoj', hover: 'Подивіться мій код на Github' },
+                  it: { default: 'makarenkoj', hover: 'Guarda il mio codice su Github' },
+                  en: { default: 'makarenkoj', hover: 'Look at my code in Github' },
+              },
+              save: {
+                  ua: { default: 'Зберегти в PDF', hover: 'Зберегти в PDF' },
+                  it: { default: 'Salva in PDF', hover: 'Salva in PDF' },
+                  en: { default: 'Save to PDF', hover: 'Save to PDF' },
+              }
+          };
+
+// new functions
+const contacts = document.getElementsByClassName('contacts-list');
+
+function toggleContactText(element, data) {
+    element.textContent = element.textContent === data.default ? data.hover : data.default;
+}
+
+for (const contact of contacts) {
+    const contactId = contact.id;
+    const contactElement = document.getElementById(contactId);
+  
+    contactElement.addEventListener('mouseenter', () => toggleContactText(contactElement, text[contactId][htmlLang]));
+    contactElement.addEventListener('mouseleave', () => toggleContactText(contactElement, text[contactId][htmlLang]));
+};
 
 console.log("Hello, I'm here! 🔥");
-
-// download PDF
-function downloadPdf() {
-  saveBtn.textContent = 'Натисни!'
-};
-
-function downloadPdfReturn() {
-  saveBtn.textContent = saveText
-};
-
-// call to phone
-function callMe() {
-  myPhone.textContent = 'Call Me +380 50 578 22 33'
-  };
-function callMeReturn() {
-    myPhone.textContent = '+380 50 578 22 33'
-  };
-
-// write to email
-function writeMeEmail() {
-  myEmail.textContent = 'Сlick to write me makarenkoj53@gmail.com'
-    };
-function writeMeEmailReturn() {
-  myEmail.textContent = 'makarenkoj53@gmail.com'
-    };
-
-// write to telegram
-function writeMeTelegram() {
-  myTelegram.textContent = 'Сlick to write me @makarenkoj'
-    };
-function writeMeTelegramReturn() {
-  myTelegram.textContent = '@makarenkoj'
-    };
-
-// write to whats app
-function writeMeWhatsApp() {
-  myWhatsApp.textContent = 'Сlick to write me on WhatsApp'
-    };
-function writeMeWhatsAppReturn() {
-  myWhatsApp.textContent = 'WhatsApp'
-    };
-
-// write to skype
-function writeMeSkype() {
-  mySkype.textContent = 'Сlick to write me @makarenkoj'
-    };
-function writeMeSkypeReturn() {
-  mySkype.textContent = 'makarenkoj'
-    };
-    
-// check me out on linkedin
-function writeMeLinkedin() {
-  myLinkedin.textContent = 'Look at me in linkedin'
-    };
-function writeMeLinkedinReturn() {
-  myLinkedin.textContent = 'My linkedin'
-    };
-
-// look at my code in github
-function writeMeGithub() {
-  myGithub.textContent = 'Look at my code in Github @makarenkoj'
-    };
-function writeMeGithubReturn() {
-  myGithub.textContent = 'makarenkoj'
-    };
-
-phoneId.addEventListener('mouseenter', callMe);
-phoneId.addEventListener('mouseleave', callMeReturn);
-
-emailId.addEventListener('mouseenter', writeMeEmail);
-emailId.addEventListener('mouseleave', writeMeEmailReturn);
-
-telegramId.addEventListener('mouseenter', writeMeTelegram);
-telegramId.addEventListener('mouseleave', writeMeTelegramReturn);
-
-whatsAppId.addEventListener('mouseenter', writeMeWhatsApp);
-whatsAppId.addEventListener('mouseleave', writeMeWhatsAppReturn);
-
-skypeId.addEventListener('mouseenter', writeMeSkype);
-skypeId.addEventListener('mouseleave', writeMeSkypeReturn);
-
-linkedinId.addEventListener('mouseenter', writeMeLinkedin);
-linkedinId.addEventListener('mouseleave', writeMeLinkedinReturn);
-
-githubId.addEventListener('mouseenter', writeMeGithub);
-githubId.addEventListener('mouseleave', writeMeGithubReturn);
-
-// saveBtn.addEventListener('mouseenter', downloadPdf);
-// saveBtn.addEventListener('mouseleave', downloadPdfReturn);
 
 addEventListener('load', (event) => {
   fetchData()
