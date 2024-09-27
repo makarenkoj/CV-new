@@ -1,3 +1,11 @@
+// url hendler
+function getCurrentURL () {
+  return window.location.href
+}
+
+const url = getCurrentURL()
+console.log(url);
+
 let myContact = document.getElementsByClassName('contacts-list'),
     phoneId = document.getElementById('phone'),
     emailId = document.getElementById('email'),
@@ -9,10 +17,17 @@ let myContact = document.getElementsByClassName('contacts-list'),
     saveBtn = document.getElementById('save'),
     itId = document.getElementById('lang_it'),
     enId = document.getElementById('lang_en'),
-    backEndUrl = 'https://clinic-6109.onrender.com/watchings',
+    // backEndUrl = 'https://clinic-6109.onrender.com/watchings',
+    // backEndUrl = 'http://localhost:3000/watchings',
     apiKey = 'f6b2f6d81b934d4a99388d30de19365f',
     address = 'https://api.ipgeolocation.io/ipgeo?apiKey=API_KEY&ip=8.8.8.8',
     clientUserInfo;
+
+if (url == 'http://127.0.0.1:5500/index.html' || url == 'http://127.0.0.1:5500/index_en.html' || url == 'http://127.0.0.1:5500/index_it.html') {
+    backEndUrl = 'http://localhost:3000/watchings';
+} else {
+    backEndUrl = 'https://clinic-6109.onrender.com/watchings';
+}
 
 const myPhone = myContact[0],
       myEmail = myContact[1],
