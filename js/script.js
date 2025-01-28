@@ -1,3 +1,11 @@
+// url hendler
+function getCurrentURL () {
+  return window.location.href
+}
+
+const url = getCurrentURL()
+console.log(url);
+
 let myContact = document.getElementsByClassName('contacts-list'),
     phoneId = document.getElementById('phone'),
     emailId = document.getElementById('email'),
@@ -8,7 +16,18 @@ let myContact = document.getElementsByClassName('contacts-list'),
     githubId = document.getElementById('github'),
     saveBtn = document.getElementById('save'),
     itId = document.getElementById('lang_it'),
-    enId = document.getElementById('lang_en');
+    enId = document.getElementById('lang_en'),
+    // backEndUrl = 'https://clinic-6109.onrender.com/watchings',
+    // backEndUrl = 'http://localhost:3000/watchings',
+    apiKey = 'f6b2f6d81b934d4a99388d30de19365f',
+    address = 'https://api.ipgeolocation.io/ipgeo?apiKey=API_KEY&ip=8.8.8.8',
+    clientUserInfo;
+
+if (url == 'http://127.0.0.1:5500/index.html' || url == 'http://127.0.0.1:5500/index_en.html' || url == 'http://127.0.0.1:5500/index_it.html') {
+    backEndUrl = 'http://localhost:3000/watchings';
+} else {
+    backEndUrl = 'https://clinic-6109.onrender.com/watchings';
+}
 
 const myPhone = myContact[0],
       myEmail = myContact[1],
@@ -19,7 +38,7 @@ const myPhone = myContact[0],
       myGithub = myContact[6],
       saveText = saveBtn.textContent;
 
-console.log(myContact);
+console.log("Hello, I'm here! 🔥");
 
 // download PDF
 function downloadPdf() {
@@ -109,3 +128,60 @@ githubId.addEventListener('mouseleave', writeMeGithubReturn);
 
 // saveBtn.addEventListener('mouseenter', downloadPdf);
 // saveBtn.addEventListener('mouseleave', downloadPdfReturn);
+
+addEventListener('load', (event) => {
+  fetchData()
+})
+
+// get user data
+async function fetchData() {
+  try {
+  const fetchUserIP = await fetch('https://api.ipify.org?format=json'),
+        userIP = await fetchUserIP.json(),
+        // fetchUserInfo = await fetch(`http://ip-api.com/json/${userIP.ip}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,proxy,hosting,query`),
+        fetchUserInfo = await fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=${apiKey}&ip=${userIP.ip}`),
+        userInfo = await fetchUserInfo.json();
+
+  userInfo.ip = userIP.ip;
+  clientUserInfo = userInfo;
+  console.log(clientUserInfo);
+
+  sendData(userInfo);
+  } catch (error) {
+    console.error('Error get data:', error);
+  }
+};
+
+// change data for send to back-end
+function camelToSnake(camelStr) {
+  return camelStr.replace(/([A-Z])/g, '_$1').toLowerCase();
+}
+
+function keysToSnakeCase(obj) {
+  if (typeof obj !== 'object' || obj === null) {
+    return obj;
+  }
+
+  if (Array.isArray(obj)) {
+    return obj.map(item => keysToSnakeCase(item));
+  }
+
+  return Object.keys(obj).reduce((acc, key) => {
+    const snakeKey = camelToSnake(key);
+    acc[snakeKey] = keysToSnakeCase(obj[key]);
+    return acc;
+  }, {});
+}
+
+// send data 
+function sendData(data) {
+  const snakeCaseData = keysToSnakeCase(data);
+  const result = fetch(backEndUrl, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: 'POST',
+    body: JSON.stringify({watching: snakeCaseData})
+  })
+  console.log('some', result);
+}
