@@ -82,6 +82,11 @@ p.about-me-section-descr {
     margin-left: 20px;
 }
 
+.my-work-experience-section h5,
+.my-work-experience-section ul {
+    padding-left: 20px;
+}
+
 .history-dates-list {
     margin-left: 20px;
     line-height: 3;
@@ -150,5 +155,11 @@ p.about-me-section-descr {
 .language-skills-list {
     padding: 0;
     list-style-type: none;
+    line-height: 2;
+}
+
+.soft-skills-list {
+    padding: 0 0 0 20px;
+    list-style-type: square;
     line-height: 2;
 }
