@@ -4,24 +4,95 @@ function getCurrentURL () {
 }
 
 const url = getCurrentURL()
-console.log(url);
+console.log('current url:', url);
+const lang = document.documentElement.lang;
+console.log('current lang:', lang);
 
-let myContact = document.getElementsByClassName('contacts-list'),
-    phoneId = document.getElementById('phone'),
-    emailId = document.getElementById('email'),
-    telegramId = document.getElementById('telegram'),
-    whatsAppId = document.getElementById('whats_app'),
-    skypeId = document.getElementById('skype'),
-    linkedinId = document.getElementById('linkedin'),
-    githubId = document.getElementById('github'),
-    saveBtn = document.getElementById('save'),
-    itId = document.getElementById('lang_it'),
-    enId = document.getElementById('lang_en'),
-    // backEndUrl = 'https://clinic-6109.onrender.com/watchings',
-    // backEndUrl = 'http://localhost:3000/watchings',
-    apiKey = 'f6b2f6d81b934d4a99388d30de19365f',
-    address = 'https://api.ipgeolocation.io/ipgeo?apiKey=API_KEY&ip=8.8.8.8',
-    clientUserInfo;
+const phoneId = document.getElementById('phone');
+const emailId = document.getElementById('email');
+const telegramId = document.getElementById('telegram');
+const whatsAppId = document.getElementById('whats_app');
+const teamsId = document.getElementById('teams');
+const linkedinId = document.getElementById('linkedin');
+const githubId = document.getElementById('github');
+const saveBtn = document.getElementById('save');
+
+const translations = {
+  en: {
+    phone_hover: "Call Me +380 50 578 22 33",
+    phone_default: "+380 50 578 22 33",
+    email_hover: "Click to write me makarenkoj53@gmail.com",
+    email_default: "makarenkoj53@gmail.com",
+    telegram_hover: "Click to write me @makarenkoj",
+    telegram_default: "@makarenkoj",
+    whatsapp_hover: "Click to write me on WhatsApp",
+    whatsapp_default: "WhatsApp",
+    teams_hover: "Click to write me in Microsoft Teams",
+    teams_default: "Microsoft Teams",
+    linkedin_hover: "Look at me on LinkedIn",
+    linkedin_default: "My LinkedIn",
+    github_hover: "Look at my code on GitHub @makarenkoj",
+    github_default: "makarenkoj"
+  },
+  uk: {
+    phone_hover: "Подзвони мені +380 50 578 22 33",
+    phone_default: "+380 50 578 22 33",
+    email_hover: "Напиши мені на makarenkoj53@gmail.com",
+    email_default: "makarenkoj53@gmail.com",
+    telegram_hover: "Напиши мені у Telegram @makarenkoj",
+    telegram_default: "@makarenkoj",
+    whatsapp_hover: "Напиши мені у WhatsApp",
+    whatsapp_default: "WhatsApp",
+    teams_hover: "Напиши мені у Microsoft Teams",
+    teams_default: "Microsoft Teams",
+    linkedin_hover: "Подивись мій профіль у LinkedIn",
+    linkedin_default: "Мій LinkedIn",
+    github_hover: "Подивись мій код на GitHub @makarenkoj",
+    github_default: "makarenkoj"
+  },
+  it: {
+    phone_hover: "Chiamami +39 351 334 42 16",
+    phone_default: "+39 351 334 42 16",
+    email_hover: "Scrivimi a makarenkoj53@gmail.com",
+    email_default: "makarenkoj53@gmail.com",
+    telegram_hover: "Scrivimi su Telegram @makarenkoj",
+    telegram_default: "@makarenkoj",
+    whatsapp_hover: "Scrivimi su WhatsApp",
+    whatsapp_default: "WhatsApp",
+    teams_hover: "Scrivimi in Microsoft Teams",
+    teams_default: "Microsoft Teams",
+    linkedin_hover: "Guarda il mio profilo su LinkedIn",
+    linkedin_default: "Il mio LinkedIn",
+    github_hover: "Guarda il mio codice su GitHub @makarenkoj",
+    github_default: "makarenkoj"
+  }
+};
+
+const t = translations[lang] || translations.en;
+
+function addHoverEffect(el, hoverText, defaultText) {
+  if (!el) return;
+  const link = el.querySelector(".contacts-list");
+  if (!link) return;
+
+  el.addEventListener("mouseenter", () => link.textContent = hoverText);
+  el.addEventListener("mouseleave", () => link.textContent = defaultText);
+}
+
+addHoverEffect(phoneId, t.phone_hover, t.phone_default);
+addHoverEffect(emailId, t.email_hover, t.email_default);
+addHoverEffect(telegramId, t.telegram_hover, t.telegram_default);
+addHoverEffect(whatsAppId, t.whatsapp_hover, t.whatsapp_default);
+addHoverEffect(teamsId, t.teams_hover, t.teams_default); // ✅ Teams
+addHoverEffect(linkedinId, t.linkedin_hover, t.linkedin_default);
+addHoverEffect(githubId, t.github_hover, t.github_default);
+
+// resolve data parts
+const apiKey = 'f6b2f6d81b934d4a99388d30de19365f',
+      address = 'https://api.ipgeolocation.io/ipgeo?apiKey=API_KEY&ip=8.8.8.8';
+
+let clientUserInfo,
+    backEndUrl;
 
 if (url == 'http://127.0.0.1:5500/index.html' || url == 'http://127.0.0.1:5500/index_en.html' || url == 'http://127.0.0.1:5500/index_it.html') {
     backEndUrl = 'http://localhost:3000/watchings';
@@ -29,105 +100,7 @@ if (url == 'http://127.0.0.1:5500/index.html' || url == 'http://127.0.0.1:5500/i
     backEndUrl = 'https://clinic-6109.onrender.com/watchings';
 }
 
-const myPhone = myContact[0],
-      myEmail = myContact[1],
-      myTelegram = myContact[2],
-      myWhatsApp = myContact[3],
-      mySkype = myContact[4],
-      myLinkedin = myContact[5],
-      myGithub = myContact[6],
-      saveText = saveBtn.textContent;
-
 console.log("Hello, I'm here! 🔥");
-
-// download PDF
-function downloadPdf() {
-  saveBtn.textContent = 'Натисни!'
-};
-
-function downloadPdfReturn() {
-  saveBtn.textContent = saveText
-};
-
-// call to phone
-function callMe() {
-  myPhone.textContent = 'Call Me +380 50 578 22 33'
-  };
-function callMeReturn() {
-    myPhone.textContent = '+380 50 578 22 33'
-  };
-
-// write to email
-function writeMeEmail() {
-  myEmail.textContent = 'Сlick to write me makarenkoj53@gmail.com'
-    };
-function writeMeEmailReturn() {
-  myEmail.textContent = 'makarenkoj53@gmail.com'
-    };
-
-// write to telegram
-function writeMeTelegram() {
-  myTelegram.textContent = 'Сlick to write me @makarenkoj'
-    };
-function writeMeTelegramReturn() {
-  myTelegram.textContent = '@makarenkoj'
-    };
-
-// write to whats app
-function writeMeWhatsApp() {
-  myWhatsApp.textContent = 'Сlick to write me on WhatsApp'
-    };
-function writeMeWhatsAppReturn() {
-  myWhatsApp.textContent = 'WhatsApp'
-    };
-
-// write to skype
-function writeMeSkype() {
-  mySkype.textContent = 'Сlick to write me @makarenkoj'
-    };
-function writeMeSkypeReturn() {
-  mySkype.textContent = 'makarenkoj'
-    };
-    
-// check me out on linkedin
-function writeMeLinkedin() {
-  myLinkedin.textContent = 'Look at me in linkedin'
-    };
-function writeMeLinkedinReturn() {
-  myLinkedin.textContent = 'My linkedin'
-    };
-
-// look at my code in github
-function writeMeGithub() {
-  myGithub.textContent = 'Look at my code in Github @makarenkoj'
-    };
-function writeMeGithubReturn() {
-  myGithub.textContent = 'makarenkoj'
-    };
-
-phoneId.addEventListener('mouseenter', callMe);
-phoneId.addEventListener('mouseleave', callMeReturn);
-
-emailId.addEventListener('mouseenter', writeMeEmail);
-emailId.addEventListener('mouseleave', writeMeEmailReturn);
-
-telegramId.addEventListener('mouseenter', writeMeTelegram);
-telegramId.addEventListener('mouseleave', writeMeTelegramReturn);
-
-whatsAppId.addEventListener('mouseenter', writeMeWhatsApp);
-whatsAppId.addEventListener('mouseleave', writeMeWhatsAppReturn);
-
-skypeId.addEventListener('mouseenter', writeMeSkype);
-skypeId.addEventListener('mouseleave', writeMeSkypeReturn);
-
-linkedinId.addEventListener('mouseenter', writeMeLinkedin);
-linkedinId.addEventListener('mouseleave', writeMeLinkedinReturn);
-
-githubId.addEventListener('mouseenter', writeMeGithub);
-githubId.addEventListener('mouseleave', writeMeGithubReturn);
-
-// saveBtn.addEventListener('mouseenter', downloadPdf);
-// saveBtn.addEventListener('mouseleave', downloadPdfReturn);
 
 addEventListener('load', (event) => {
   fetchData()
