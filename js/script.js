@@ -83,7 +83,7 @@ addHoverEffect(phoneId, t.phone_hover, t.phone_default);
 addHoverEffect(emailId, t.email_hover, t.email_default);
 addHoverEffect(telegramId, t.telegram_hover, t.telegram_default);
 addHoverEffect(whatsAppId, t.whatsapp_hover, t.whatsapp_default);
-addHoverEffect(teamsId, t.teams_hover, t.teams_default); // ✅ Teams
+addHoverEffect(teamsId, t.teams_hover, t.teams_default);
 addHoverEffect(linkedinId, t.linkedin_hover, t.linkedin_default);
 addHoverEffect(githubId, t.github_hover, t.github_default);
 
