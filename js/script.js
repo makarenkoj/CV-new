@@ -94,10 +94,10 @@ const apiKey = 'f6b2f6d81b934d4a99388d30de19365f',
 let clientUserInfo,
     backEndUrl;
 
-if (url == 'http://127.0.0.1:5500/index.html' || url == 'http://127.0.0.1:5500/index_en.html' || url == 'http://127.0.0.1:5500/index_it.html') {
-    backEndUrl = 'http://localhost:3000/watchings';
+if (url == 'http://127.0.0.1:5500/index.html' || url == 'http://127.0.0.1:5500/index_en.html' || url == 'http://127.0.0.1:5500/index_it.html' || url == 'http://127.0.0.1:5501/index_en.html') {
+    backEndUrl = 'http://localhost:3000/lookeds';
 } else {
-    backEndUrl = 'https://clinic-6109.onrender.com/watchings';
+    backEndUrl = 'https://secret-santa.165.227.148.3.sslip.io/lookeds';
 }
 
 console.log("Hello, I'm here! 🔥");
@@ -154,7 +154,7 @@ function sendData(data) {
       "Content-Type": "application/json",
     },
     method: 'POST',
-    body: JSON.stringify({watching: snakeCaseData})
+    body: JSON.stringify({lookeds: snakeCaseData})
   })
   console.log('some', result);
 }
