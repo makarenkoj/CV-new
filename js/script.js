@@ -88,73 +88,56 @@ addHoverEffect(linkedinId, t.linkedin_hover, t.linkedin_default);
 addHoverEffect(githubId, t.github_hover, t.github_default);
 
 // resolve data parts
-const apiKey = 'f6b2f6d81b934d4a99388d30de19365f',
-      address = 'https://api.ipgeolocation.io/ipgeo?apiKey=API_KEY&ip=8.8.8.8';
+let backEndUrl;
 
-let clientUserInfo,
-    backEndUrl;
-
-if (url == 'http://127.0.0.1:5500/index.html' || url == 'http://127.0.0.1:5500/index_en.html' || url == 'http://127.0.0.1:5500/index_it.html' || url == 'http://127.0.0.1:5501/index_en.html') {
-    backEndUrl = 'http://localhost:3000/lookeds';
+if (url.includes('127.0.0.1:5500') || url.includes('127.0.0.1:5501')) {
+    backEndUrl = 'http://localhost:3000/lookeds/get_address';
 } else {
-    backEndUrl = 'https://secret-santa.165.227.148.3.sslip.io/lookeds';
+    backEndUrl = 'https://secret-santa.165.227.148.3.sslip.io/lookeds/get_address';
 }
 
 console.log("Hello, I'm here! 🔥");
 
-addEventListener('load', (event) => {
-  fetchData()
-})
+function getClientData() {
+  return {
+    current_url: window.location.href,
+    referrer: document.referrer || 'Direct',
+    screen_resolution: `${window.screen.width}x${window.screen.height}`,
+    viewport_size: `${window.innerWidth}x${window.innerHeight}`,
+    color_depth: window.screen.colorDepth,
+    local_time: new Date().toString(),
+    browser_language: navigator.language || navigator.userLanguage,    
+    cpu_cores: navigator.hardwareConcurrency || null,
+    device_memory_gb: navigator.deviceMemory || null,
+    is_dark_mode: window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches,
+    is_touch_screen: navigator.maxTouchPoints > 0,
+    network_type: navigator.connection ? navigator.connection.effectiveType : 'unknown'
+  };
+}
 
-// get user data
-async function fetchData() {
+window.addEventListener('load', () => {
+  notifyBackend();
+});
+
+async function notifyBackend() {
+  const payload = {
+    lookeds: {
+      ...getClientData(),
+      lang: document.documentElement.lang || 'en'
+    }
+  };
+
   try {
-  const fetchUserIP = await fetch('https://api.ipify.org?format=json'),
-        userIP = await fetchUserIP.json(),
-        // fetchUserInfo = await fetch(`http://ip-api.com/json/${userIP.ip}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,proxy,hosting,query`),
-        fetchUserInfo = await fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=${apiKey}&ip=${userIP.ip}`),
-        userInfo = await fetchUserInfo.json();
-
-  userInfo.ip = userIP.ip;
-  clientUserInfo = userInfo;
-  console.log(clientUserInfo);
-
-  sendData(userInfo);
+    const response = await fetch(backEndUrl, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload)
+    });
+    
+    // console.log('Successfully pinged Rails backend, status:', response.status);
   } catch (error) {
-    console.error('Error get data:', error);
+    // console.error('Error pinging backend:', error);
   }
-};
-
-// change data for send to back-end
-function camelToSnake(camelStr) {
-  return camelStr.replace(/([A-Z])/g, '_$1').toLowerCase();
-}
-
-function keysToSnakeCase(obj) {
-  if (typeof obj !== 'object' || obj === null) {
-    return obj;
-  }
-
-  if (Array.isArray(obj)) {
-    return obj.map(item => keysToSnakeCase(item));
-  }
-
-  return Object.keys(obj).reduce((acc, key) => {
-    const snakeKey = camelToSnake(key);
-    acc[snakeKey] = keysToSnakeCase(obj[key]);
-    return acc;
-  }, {});
-}
-
-// send data 
-function sendData(data) {
-  const snakeCaseData = keysToSnakeCase(data);
-  const result = fetch(backEndUrl, {
-    headers: {
-      "Content-Type": "application/json",
-    },
-    method: 'POST',
-    body: JSON.stringify({lookeds: snakeCaseData})
-  })
-  console.log('some', result);
 }
