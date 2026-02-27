@@ -119,7 +119,7 @@ async function fetchData() {
   clientUserInfo = userInfo;
   console.log(clientUserInfo);
 
-  sendData(userInfo);
+  // sendData(userInfo);
   } catch (error) {
     console.error('Error get data:', error);
   }
