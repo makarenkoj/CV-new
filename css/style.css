@@ -5,33 +5,45 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
+    font-size: 13px;
+    line-height: 1.35;
     background-color: rgb(200, 200, 204);
+}
+
+h1 {
+    font-size: 26px;
+    margin: 5px 0;
+}
+
+h2 {
+    font-size: 16px;
+    margin: 3px 0;
 }
 
 h3 {
     font-family: 'Alegreya', serif;
-    font-size: 26px;
-    padding-left: 40px;
-    line-height: 2;
-    margin-top: 20px;
+    font-size: 16px;
+    padding-left: 20px;
+    line-height: 1.3;
+    margin-top: 10px;
 }
 
 h4 {
-    font-size: 18px;
-    margin-top: 15px;
+    font-size: 14px;
+    margin-top: 8px;
 }
 
 h5 {
-    font-size: 16px;
-    line-height: 1.5;
-    padding-left: 20px;
+    font-size: 13px;
+    line-height: 1.3;
+    padding-left: 10px;
+    margin-top:4px;
 }
 
 .main-container {
     display: flex;
     flex-direction: row-reverse;
-    width: 1200px;
+    width: 1000px;
     background-color: white;
     margin: 0 auto;
 }
@@ -88,20 +100,21 @@ p.about-me-section-descr {
 }
 
 .history-dates-list {
-    margin-left: 20px;
-    line-height: 3;
+    margin-left: 10px;
+    line-height: 1.3;
 }
 
 .responsibilities-list {
     font-style: italic;
     font-weight: 100;
-    line-height: 1.5;
-    margin-left: 20px;
+    line-height: 1.3;
+    margin-left: 15px;
+    margin-bottom: 3px;
 }
 
 .tech-stack-list {
-    margin-left: 20px;
-    line-height: 2;
+    margin-left: 10px;
+    line-height: 1.3;
 }
 
 .additional-info-section {
@@ -113,9 +126,9 @@ p.about-me-section-descr {
 
 .sidebar-section {
     background-color: #1E2939;
-    width: 580px;
-    margin: 20px;
-    padding: 10px;
+    width: 350px;
+    margin: 0;
+    padding: 15px;
     color: white;
 }
 
@@ -130,8 +143,8 @@ p.about-me-section-descr {
 }
 
 .contacts-section {
-    padding: 25px;
-    line-height: 2.5;
+    padding: 10px;
+    line-height: 1.6;
 }
 
 .contacts-list {
@@ -142,9 +155,9 @@ p.about-me-section-descr {
 }
 
 .tech-skills-list {
-    padding: 0 0 0 20px;
+    padding: 15px;
     list-style-type: square;
-    line-height: 2;
+    line-height: 1.4;
 }
 
 .bold-italic-style {
@@ -159,7 +172,7 @@ p.about-me-section-descr {
 }
 
 .soft-skills-list {
-    padding: 0 0 0 20px;
+    padding: 15px;
     list-style-type: square;
-    line-height: 2;
+    line-height: 1.4;
 }
