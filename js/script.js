@@ -96,7 +96,7 @@ if (url.includes('127.0.0.1:5500') || url.includes('127.0.0.1:5501')) {
     backEndUrl = 'https://secret-santa.165.227.148.3.sslip.io/lookeds/get_address';
 }
 
-console.log("Hello, I'm here! 🔥");
+// console.log("Hello, I'm here! 🔥");
 
 function getClientData() {
   return {
