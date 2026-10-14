@@ -59,19 +59,27 @@ h5 {
   margin: 20px auto;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
   min-height: 100vh;
+  /* prevent flex children from forcing unexpected shrink */
+  align-items: stretch;
 }
 
 .main-contant-section {
-  flex: 1;
+  flex: 1 1 auto;
+  min-width: 0; /* allow content to shrink, not the sidebar */
   padding: 28px 36px 32px 28px;
 }
 
 .sidebar-section {
   background-color: #1e2939;
-  width: 320px;
-  flex-shrink: 0;
-  padding: 24px 18px 28px;
+  /* lock sidebar width so it never compresses on narrower viewports */
+  flex: 0 0 340px;
+  width: 340px;
+  min-width: 340px;
+  max-width: 340px;
+  padding: 24px 20px 28px;
   color: #fff;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 /* About */
@@ -241,14 +249,15 @@ h5 {
 .soft-skills-list {
   padding: 8px 0 0 16px;
   list-style-type: square;
-  line-height: 1.45;
+  line-height: 1.5;
   color: #dce4ee;
   font-size: 12px;
+  overflow-wrap: anywhere; /* long tech terms wrap cleanly */
 }
 
 .tech-skills-list li,
 .soft-skills-list li {
-  margin-bottom: 6px;
+  margin-bottom: 7px;
 }
 
 .tech-skills-list strong {
@@ -288,8 +297,8 @@ h5 {
   }
 }
 
-/* Responsive */
-@media (max-width: 900px) {
+/* Responsive — only stack when truly narrow */
+@media (max-width: 860px) {
   .main-container {
     flex-direction: column;
     width: 100%;
@@ -297,7 +306,10 @@ h5 {
   }
 
   .sidebar-section {
+    flex: none;
     width: 100%;
+    min-width: 0;
+    max-width: none;
   }
 
   .main-contant-section {
