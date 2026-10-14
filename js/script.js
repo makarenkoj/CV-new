@@ -1,4 +1,4 @@
-// url hendler
+// url handler
 function getCurrentURL () {
   return window.location.href
 }
@@ -30,7 +30,7 @@ const translations = {
     teams_hover: "Click to write me in Microsoft Teams",
     teams_default: "Microsoft Teams",
     linkedin_hover: "Look at me on LinkedIn",
-    linkedin_default: "My LinkedIn",
+    linkedin_default: "LinkedIn",
     github_hover: "Look at my code on GitHub @makarenkoj",
     github_default: "makarenkoj"
   },
@@ -62,7 +62,7 @@ const translations = {
     teams_hover: "Scrivimi in Microsoft Teams",
     teams_default: "Microsoft Teams",
     linkedin_hover: "Guarda il mio profilo su LinkedIn",
-    linkedin_default: "Il mio LinkedIn",
+    linkedin_default: "LinkedIn",
     github_hover: "Guarda il mio codice su GitHub @makarenkoj",
     github_default: "makarenkoj"
   }
@@ -96,8 +96,6 @@ if (url.includes('127.0.0.1:5500') || url.includes('127.0.0.1:5501')) {
     backEndUrl = 'https://secret-santa.165.227.148.3.sslip.io/lookeds/get_address';
 }
 
-// console.log("Hello, I'm here! 🔥");
-
 function getClientData() {
   return {
     current_url: window.location.href,
@@ -106,7 +104,7 @@ function getClientData() {
     viewport_size: `${window.innerWidth}x${window.innerHeight}`,
     color_depth: window.screen.colorDepth,
     local_time: new Date().toString(),
-    browser_language: navigator.language || navigator.userLanguage,    
+    browser_language: navigator.language || navigator.userLanguage,
     cpu_cores: navigator.hardwareConcurrency || null,
     device_memory_gb: navigator.deviceMemory || null,
     is_dark_mode: window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches,
@@ -135,9 +133,7 @@ async function notifyBackend() {
       },
       body: JSON.stringify(payload)
     });
-    
-    // console.log('Successfully pinged Rails backend, status:', response.status);
   } catch (error) {
-    // console.error('Error pinging backend:', error);
+    // silently ignore
   }
 }
