@@ -1,0 +1,62 @@
+/* ==========================================================================
+   layout.css — page structure (two-column CV: main content + sidebar)
+   ========================================================================== */
+
+   .main-container {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 1000px;
+    background-color: var(--color-surface);
+    margin: 0 auto;
+}
+
+.main-contant-section {
+    margin-left: 20px;
+    margin-right: 40px;
+}
+
+.about-me-section {
+    /* No photo above the fold anymore, so the block sits closer to the
+       top of the page instead of leaving a large empty gap. */
+    padding-top: 30px;
+    line-height: 2;
+}
+
+.my-projects-section {
+    padding: 0;
+    margin: 5px;
+}
+
+.my-short-history-section {
+    padding: 10px;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.my-education-section {
+    margin: 20px 0 40px 20px;
+}
+
+.my-work-experience-section {
+    margin-left: 20px;
+}
+
+.my-work-experience-section h5,
+.my-work-experience-section ul {
+    padding-left: 20px;
+}
+
+.additional-info-section {
+    margin-left: 60px;
+    line-height: 1.7;
+}
+
+/* sidebar section */
+
+.sidebar-section {
+    background-color: var(--color-sidebar-bg);
+    width: 350px;
+    margin: 0;
+    padding: 20px 15px;
+    color: var(--color-sidebar-text);
+}

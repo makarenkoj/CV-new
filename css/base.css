@@ -1,0 +1,60 @@
+/* ==========================================================================
+   base.css — resets, typography, theme tokens
+   Loaded after normalize.css, before layout.css and components.css.
+   ========================================================================== */
+
+   :root {
+    --color-accent: #1F7A5C;   /* teal-green accent, matches the PDF resume */
+    --color-sidebar-bg: #1E2939;
+    --color-sidebar-text: #ffffff;
+    --color-text: rgb(20, 20, 20);
+    --color-text-muted: #5a5a5a;
+    --color-bg: rgb(200, 200, 204);
+    --color-surface: #ffffff;
+    --font-serif: 'Alegreya', serif;
+    --font-sans: 'Open Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    line-height: 1.35;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+h1 {
+    font-size: 26px;
+    margin: 5px 0;
+}
+
+h2 {
+    font-size: 16px;
+    margin: 3px 0;
+}
+
+h3 {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    padding-left: 20px;
+    line-height: 1.3;
+    margin-top: 10px;
+}
+
+h4 {
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+h5 {
+    font-size: 13px;
+    line-height: 1.3;
+    padding-left: 10px;
+    margin-top: 4px;
+}
