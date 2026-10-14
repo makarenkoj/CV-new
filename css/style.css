@@ -297,22 +297,124 @@ h5 {
   }
 }
 
-/* Responsive — only stack when truly narrow */
+/* Responsive — mobile: sidebar (contacts) on top, then content */
 @media (max-width: 860px) {
+  body {
+    background-color: #1e2939;
+  }
+
   .main-container {
     flex-direction: column;
     width: 100%;
+    max-width: 100%;
     margin: 0;
+    box-shadow: none;
+    min-height: auto;
   }
 
+  /* Sidebar first on mobile (contacts & skills above the fold) */
   .sidebar-section {
+    order: -1;
     flex: none;
     width: 100%;
     min-width: 0;
     max-width: none;
+    padding: 16px 16px 20px;
   }
 
   .main-contant-section {
-    padding: 24px 20px;
+    order: 1;
+    padding: 20px 16px 28px;
+    background: #fff;
+  }
+
+  .lang-buttons {
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+  }
+
+  .button {
+    font-size: 15px;
+    padding: 8px 10px;
+  }
+
+  .contact-row {
+    margin-bottom: 10px;
+    gap: 12px;
+  }
+
+  .contacts-list {
+    font-size: 14px;
+  }
+
+  .about-me-profession {
+    margin-top: 0;
+    font-size: 14px;
+  }
+
+  .name-surname-line {
+    font-size: 26px;
+  }
+
+  .about-me-section p {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  h3 {
+    font-size: 15px;
+    margin-top: 16px;
+  }
+
+  h4 {
+    font-size: 14px;
+  }
+
+  .history-dates-list,
+  .tech-stack-list,
+  .responsibilities-list {
+    font-size: 13px;
+  }
+
+  .my-work-experience-section ul {
+    margin-left: 14px;
+  }
+
+  .declaration-section {
+    margin-top: 20px;
+    padding-top: 14px;
+  }
+
+  .declaration-section p {
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .tech-skills-list,
+  .soft-skills-list {
+    font-size: 12.5px;
+    padding-left: 14px;
+  }
+
+  .language-skills-list {
+    font-size: 13px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .sidebar-section,
+  .main-contant-section {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .name-surname-line {
+    font-size: 22px;
+  }
+
+  .button {
+    font-size: 13px;
+    padding: 6px 6px;
   }
 }
